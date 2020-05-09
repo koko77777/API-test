@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <!-- meta -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <title>音声認識ミニアプリ</title>
+
+    <!-- og -->
+    <meta property="og:title" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="" />
+    <meta property="og:image" content="" />
+    <meta property="og:site_name" content="" />
+    <meta property="og:description" content="" />
+
+    <!-- css -->
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="inner">
+      <h2>say black!</h2>
+      <h2>say yellow!</h2>
+      <p>ボタンをクリックして音声を認識し、背景色を変更します。</p>
+      <button>音声認識を開始</button>
+    </div>
+    <!-- /inner -->
+
+    <script>
+      const btn = document.querySelector("button");
+      const speech = new webkitSpeechRecognition();
+      speech.lang = "en-US";
+
+      btn.addEventListener("click", () => {
+        btn.disabled = true;
+        speech.start();
+      });
+
+      speech.onresult = (e) => {
+        speech.stop();
+        if (e.results[0].isFinal) {
+          document.body.style.background = e.results[0][0].transcript;
+        }
+      };
+
+      speech.onend = () => {
+        speech.start();
+      };
+
+      speech.onsoundstart = () => {
+        btn.textContent = "音声を認識しています・・・";
+      };
+
+      speech.onsoundend = () => {
+        btn.textContent = "結果を反映しました";
+      };
+    </script>
+  </body>
+</html>

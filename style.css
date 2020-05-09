@@ -1,0 +1,44 @@
+body {
+  letter-spacing: 0.05em;
+}
+
+.inner {
+  width: 400px;
+  height: auto;
+  margin: 100px auto 0;
+  padding: 15px;
+  border-radius: 15px;
+  background: #def1fa;
+  box-shadow: gray 0 5px 0 0;
+}
+
+h2 {
+  font-size: 24px;
+  text-align: center;
+  font-family: "Ubuntu", sans-serif;
+}
+
+p {
+  padding-top: 10px;
+}
+
+button {
+  cursor: pointer;
+  outline: none;
+  appearance: none;
+  display: block;
+  margin: 0 auto;
+  padding: 10px;
+  color: #fff;
+  background: #03a9f4;
+  border: solid 1px #0f9ada;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  font-family: "M PLUS Rounded 1c", sans-serif;
+  font-size: 28px;
+}
+
+button:active {
+  border-bottom: solid 2px #fd9535;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
+}
