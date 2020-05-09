@@ -47,6 +47,7 @@
       btn.addEventListener("click", () => {
         btn.disabled = true;
         speech.start();
+        btn.textContent = "音声を認識しています・・・";
       });
 
       speech.onresult = (e) => {
@@ -61,7 +62,7 @@
       };
 
       speech.onsoundstart = () => {
-        btn.textContent = "音声を認識しています・・・";
+        btn.textContent = "処理中です・・";
       };
 
       speech.onsoundend = () => {
